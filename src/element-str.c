@@ -1,0 +1,10 @@
+#include "element-str.h"
+
+Element_str* creer_element_str(char gout[50]) {
+    Element_str* nouv_element = (Element_str*)malloc(sizeof(Element_str));
+    strncpy(nouv_element->texte, gout, 50);
+    if (strlen(gout) >= 49) {
+        nouv_element->texte[49] = '\0';
+    }
+    return nouv_element;
+}

@@ -4,6 +4,9 @@ typedef struct Pile_Gouts {
     Element_str* data;
 } Pile_Gouts;
 
+Element_str* create_gout(char* gout);
+void add_gout(Element_str** l_gouts, Element_str* gout);
+Element_str * initialiser_gouts();
 Pile_Gouts* creer_pile_gouts();
 void empiler(Pile_Gouts* p, char gout[50]);
 Element_str* depiler(Pile_Gouts* p);

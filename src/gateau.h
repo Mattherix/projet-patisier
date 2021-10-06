@@ -1,5 +1,5 @@
 #include "gouts.h"
-#include "element-str.h"
+
 
 typedef struct Gateau {
     struct Element_str* commande;

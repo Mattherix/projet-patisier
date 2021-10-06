@@ -1,10 +1,13 @@
 #include <stdlib.h>
 #include "gouts.h"
 
-Element_str* create_gout(char* gout) {
+Element_str* create_gout(char gout[50]) {
     Element_str* l_gouts;
     l_gouts = malloc(sizeof(Element_str));
-    strcpy(l_gouts->texte,gout);
+    strncpy(l_gouts->texte, gout, 50);
+    if (strlen(gout) >= 49) {
+        l_gouts->texte[49] = '\0';
+    }
     l_gouts->next = NULL;
     return l_gouts;
 }

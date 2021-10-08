@@ -1,3 +1,6 @@
+#include <stdlib.h>
+#include <string.h>
+
 #include "element-str.h"
 
 Element_str* creer_element_str(char gout[50]) {

@@ -1,3 +1,6 @@
+#ifndef GATEAUX_H
+#define GATEAUX_H
+
 #include "gouts.h"
 
 
@@ -8,3 +11,5 @@ typedef struct Gateau {
 
 Gateau* creer_gateau(Element_str* commande);
 void construire_gateau(Gateau* gateau, Element_str* l_gouts);
+
+#endif

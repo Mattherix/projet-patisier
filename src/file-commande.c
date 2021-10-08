@@ -1,4 +1,7 @@
+#include <stdlib.h>
+
 #include "file-commande.h"
+#include "gouts.c"
 
 File_Commandes* creer_file_commande() {
     File_Commandes * nouv_pile = (File_Commandes*)malloc(sizeof(File_Commandes));

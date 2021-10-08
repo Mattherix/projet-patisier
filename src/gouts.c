@@ -57,7 +57,7 @@ void empiler(Pile_Gouts* p, char gout[50]) {
 Element_str* depiler(Pile_Gouts* p) {
     Element_str* result;
     result=create_gout("");
-    if(est_vide(p)==1){
+    if(pile_est_vide(p)){
         return result ;
     }
     else{

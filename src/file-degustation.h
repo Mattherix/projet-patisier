@@ -1,4 +1,7 @@
-#include "gateau.h"
+#ifndef FILE_DEGUSTATION_H
+#define FILE_DEGUSTATION_H
+
+#include "gateaux.h"
 
 typedef struct Element_gtx{
     struct Gateau* gateau;
@@ -13,3 +16,5 @@ Element_gtx* create_element_gtx(Gateau* gateau);
 File_Degustation* create_file_degustation();
 void livrer(Gateau* gateau,File_Degustation* f_degustation);
 void degustation(File_Degustation* f_degustation,int nb_parts);
+
+#endif

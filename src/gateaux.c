@@ -1,4 +1,4 @@
-#include "gateau.h"
+#include "gateaux.h"
 #include <stdlib.h>
 
 Gateau* creer_gateau(Element_str* commande) {

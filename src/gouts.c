@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdbool.h>
 #include "gouts.h"
 
 Element_str* create_gout(char gout[50]) {
@@ -51,4 +52,28 @@ void empiler(Pile_Gouts* p, char gout[50]) {
     
     nouv_element->next = p->data;
     p->data = nouv_element;
+}
+
+Element_str* depiler(Pile_Gouts* p) {
+    Element_str* result;
+    result=create_gout("");
+    if(est_vide(p)==1){
+        return result ;
+    }
+    else{
+        strncpy(result->texte, p->data->texte, 50);
+        Element_str* old =p->data;
+        p->data=p->data->next;
+        free(old);
+        return result;
+    }
+}
+
+bool pile_est_vide(Pile_Gouts* p){
+    if (p->data==NULL){
+        return true;
+    }
+    else{
+        return false;
+    }
 }

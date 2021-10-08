@@ -19,14 +19,14 @@ int main() {
     while(i!=0){
         printf("Entrer 1 pour passer une commande, 2 pour deguster, 0 pour quitter \n");
         scanf("%d",&i);
-        if (i==1){
+        if (i==1) {
             recuperer_commande(commande);
             passer_commande(commande,f_commandes);
             gateau=creer_gateau(traiter_commande(f_commandes));
             construire_gateau(gateau,gouts);
             livrer(gateau,f_degustation);
         }
-        if (i==2){
+        if (i==2) {
             printf("Vous deguster;\n");
             degustation(f_degustation,2);
         }

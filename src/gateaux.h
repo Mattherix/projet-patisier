@@ -3,7 +3,6 @@
 
 #include "gouts.h"
 
-
 typedef struct Gateau {
     struct Element_str* commande;
     struct Pile_Gouts* p_gouts;

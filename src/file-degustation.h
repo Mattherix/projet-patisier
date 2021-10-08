@@ -3,12 +3,12 @@
 
 #include "gateaux.h"
 
-typedef struct Element_gtx{
+typedef struct Element_gtx {
     struct Gateau* gateau;
     struct Element_gtx* next;
 } Element_gtx;
 
-typedef struct File_Degustation{
+typedef struct File_Degustation {
     struct Element_gtx* commandes;
 } File_Degustation;
 

@@ -3,7 +3,7 @@
 
 #include "element-str.h"
 
-typedef struct File_Commandes{
+typedef struct File_Commandes {
     Element_str* commandes;
 } File_Commandes;
 

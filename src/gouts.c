@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
+
 #include "gouts.h"
 
 Element_str* create_gout(char gout[50]) {
@@ -69,11 +70,11 @@ Element_str* depiler(Pile_Gouts* p) {
     }
 }
 
-bool pile_est_vide(Pile_Gouts* p){
-    if (p->data==NULL){
+bool pile_est_vide(Pile_Gouts* p) {
+    if (p->data==NULL) {
         return true;
     }
-    else{
+    else {
         return false;
     }
 }

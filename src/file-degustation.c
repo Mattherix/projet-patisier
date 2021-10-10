@@ -31,14 +31,13 @@ void livrer(Gateau* gateau,File_Degustation* f_degustation) {
 
 void degustation(File_Degustation* f_degustation, int nb_parts) {
     if (f_degustation->commandes != NULL) {
-        Pile_Gouts* temp_gouts=f_degustation->commandes->gateau->p_gouts;
-        Element_gtx* temp_gateaux=f_degustation->commandes;
+        Element_gtx* temp_gateaux = f_degustation->commandes;
         while(nb_parts>0) {
-            if(f_degustation->commandes->gateau->p_gouts->data==NULL) {
-                temp_gateaux=f_degustation->commandes;
-                f_degustation->commandes=f_degustation->commandes->next;
+            if(f_degustation->commandes->gateau->p_gouts->data == NULL) {
+                temp_gateaux = f_degustation->commandes;
+                f_degustation->commandes = f_degustation->commandes->next;
                 free(temp_gateaux);
-                if (f_degustation->commandes==NULL ) {
+                if (f_degustation->commandes == NULL ) {
                     printf("plus de gateaux :(\n");
                     nb_parts=0;
                 }
@@ -46,7 +45,7 @@ void degustation(File_Degustation* f_degustation, int nb_parts) {
                     printf("nouveaux gateaux!\n");
                 }
             }
-            if (nb_parts!=0) {
+            if (nb_parts != 0) {
                 printf("%s \n", depiler(f_degustation->commandes->gateau->p_gouts)->texte);
             }
             nb_parts--;

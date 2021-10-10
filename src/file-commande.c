@@ -70,3 +70,12 @@ Element_str* traiter_commande(File_Commandes* f_commandes) {
         return res;
     }
 }
+
+void _print_file_commande(File_Commandes* f_commandes) {
+    puts("[DEBUG] Print File commandes");
+    Element_str* commande = f_commandes->commandes;
+    while (commande != NULL) {
+        printf("[DEBUG]         %s \n", commande->texte);
+        commande = commande->next;
+    }
+}

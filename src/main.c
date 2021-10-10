@@ -10,7 +10,6 @@ int main() {
     int choix = 1;
     int nb_parts = 2;
     char commande[50];
-    Element_str* gouts = initialiser_gouts();
     File_Commandes* f_commandes = creer_file_commande();
     Gateau* gateau;
     File_Degustation* f_degustation = create_file_degustation();
@@ -24,8 +23,8 @@ int main() {
             case 1:
                 recuperer_commande(commande);
                 passer_commande(commande,f_commandes);
-                gateau=creer_gateau(traiter_commande(f_commandes));
-                construire_gateau(gateau,gouts);
+                gateau = creer_gateau(traiter_commande(f_commandes));
+                construire_gateau(gateau);
                 livrer(gateau,f_degustation);
                 break;
             
@@ -34,8 +33,8 @@ int main() {
                     printf("Combien de parts voulez vous déguster ?\n");
                     scanf("%d", &nb_parts);
                 } while (nb_parts <= 0);
-                printf("Vous deguster;\n");
-                degustation(f_degustation, 2);
+                printf("Vous deguster:\n");
+                degustation(f_degustation, nb_parts);
                 break;
 
             default:

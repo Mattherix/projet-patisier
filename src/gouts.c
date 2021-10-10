@@ -80,3 +80,53 @@ bool pile_est_vide(Pile_Gouts* p) {
         return false;
     }
 }
+
+Element_str* commande_list_gouts(Element_str* commande) {
+    Element_str* l_gouts = NULL;
+    char c;
+    int i;
+    while (commande != NULL) {
+        c = commande->texte[0];
+        i = 0;
+
+        while (c != '\0') {
+            switch (c) {
+                case 'C':
+                case 'c':
+                    add_gout(&l_gouts,create_gout("Chocolat"));
+                    break;
+                case 'V':
+                case 'v':
+                    add_gout(&l_gouts,create_gout("Vanille"));
+                    break;
+                case 'F':
+                case 'f':
+                    add_gout(&l_gouts,create_gout("Fraise"));
+                    break;
+                case 'A':
+                case 'a':
+                    add_gout(&l_gouts,create_gout("Abricot"));
+                    break;
+                case 'P':
+                case 'p':
+                    add_gout(&l_gouts,create_gout("Pomme"));
+                    break;
+                case 'B':
+                case 'b':
+                    add_gout(&l_gouts,create_gout("Banane"));
+                    break;
+                case 'M':
+                case 'm':
+                    add_gout(&l_gouts,create_gout("Myrtille"));
+                    break;
+                default:
+                    break;
+            }
+            
+            ++i;
+            c = commande->texte[i];
+        }
+        commande = commande->next;
+    }
+    return l_gouts;
+}

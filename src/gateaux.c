@@ -1,4 +1,5 @@
 #include "gateaux.h"
+
 #include <stdlib.h>
 
 Gateau* creer_gateau(Element_str* commande) {
@@ -8,10 +9,10 @@ Gateau* creer_gateau(Element_str* commande) {
     return gateau;
 }
 
-void construire_gateau(Gateau* gateau, Element_str* l_gouts) {
-    Element_str *commande = gateau->commande;
-    while (commande != NULL) {
-        empiler(gateau->p_gouts, commande->texte);
-        commande = commande->next;
+void construire_gateau(Gateau* gateau) {
+    Element_str* l_gouts = commande_list_gouts(gateau->commande);
+    while (l_gouts != NULL) {
+        empiler(gateau->p_gouts, l_gouts->texte);
+        l_gouts = l_gouts->next;
     }
 }

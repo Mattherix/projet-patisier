@@ -9,6 +9,6 @@ typedef struct Gateau {
 } Gateau;
 
 Gateau* creer_gateau(Element_str* commande);
-void construire_gateau(Gateau* gateau, Element_str* l_gouts);
+void construire_gateau(Gateau* gateau);
 
 #endif

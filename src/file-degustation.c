@@ -5,51 +5,61 @@
 
 Element_gtx* create_element_gtx(Gateau* gateau) {
     Element_gtx* temp = (Element_gtx*)malloc(sizeof(Element_gtx));
-    temp->gateau=gateau;
-    temp->next=NULL;
+    temp->gateau = gateau;
+    temp->next = NULL;
+
     return temp;
 }
 
 File_Degustation* create_file_degustation() {
     File_Degustation* f_gateau = (File_Degustation*)malloc(sizeof(File_Degustation));
-    f_gateau->commandes=NULL;
+    f_gateau->commandes = NULL;
+
     return f_gateau;
 }
 
-void livrer(Gateau* gateau,File_Degustation* f_degustation) {
-    Element_gtx* nouv_element=create_element_gtx(gateau);
-    if(f_degustation->commandes==NULL) {
-        f_degustation->commandes=nouv_element;
+// Equivalent à enfiler
+void livrer(Gateau* gateau, File_Degustation* f_degustation) {
+    Element_gtx* nouv_element = create_element_gtx(gateau);
+    
+    if(f_degustation->commandes == NULL) {
+        f_degustation->commandes = nouv_element;
     }
     else {
-        Element_gtx* temp=f_degustation->commandes;
-        while(temp->next!=NULL) {
-            temp=temp->next;
+        Element_gtx* temp = f_degustation->commandes;
+        while(temp->next != NULL) {
+            temp = temp->next;
         }
-        temp->next=nouv_element;
+        temp->next = nouv_element;
     }
 }
 
 void degustation(File_Degustation* f_degustation, int nb_parts) {
     if (f_degustation->commandes != NULL) {
-        Element_gtx* temp_gateaux = f_degustation->commandes;
-        while(nb_parts>0) {
-            if(f_degustation->commandes->gateau->p_gouts->data == NULL) {
-                temp_gateaux = f_degustation->commandes;
+        Element_gtx* old_gateaux = f_degustation->commandes;
+
+        while(nb_parts > 0) {
+            // Si le premier gateau de la file n'a plus de couche ...
+            if(pile_est_vide(f_degustation->commandes->gateau->p_gouts)) {
+                // .. on essaye de passer au prochain gateau
+                old_gateaux = f_degustation->commandes;
                 f_degustation->commandes = f_degustation->commandes->next;
-                free(temp_gateaux);
+                free(old_gateaux);
+
+                // On vérifier si il y a encore des gateaux
                 if (f_degustation->commandes == NULL ) {
                     printf("plus de gateaux :(\n");
-                    nb_parts=0;
+                    nb_parts = 0;
                 }
                 else {
                     printf("nouveaux gateaux!\n");
                 }
             }
+            // On mange une part
             if (nb_parts != 0) {
                 printf("%s \n", depiler(f_degustation->commandes->gateau->p_gouts)->texte);
+                nb_parts--;
             }
-            nb_parts--;
         }
     } else {
         puts("Pas de gateau dans la File :(");

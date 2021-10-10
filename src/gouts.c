@@ -11,22 +11,26 @@ Element_str* create_gout(char gout[50]) {
     
     Element_str* l_gouts;
     l_gouts = malloc(sizeof(Element_str));
+    
     strncpy(l_gouts->texte, gout, 50);
+    // strncpy n'ajoute pas de '\0' si la chaine de char est trop longue
     if (strlen(gout) >= 49) {
         l_gouts->texte[49] = '\0';
     }
+
     l_gouts->next = NULL;
     return l_gouts;
 }
 
 void add_gout(Element_str** l_gouts, Element_str* gout) {
-    if (*l_gouts == NULL){
+    if (*l_gouts == NULL) {
         *l_gouts = gout;
-    }else{
+    } else {
         add_gout(&(*l_gouts)->next,gout);
     }
 }
 
+// Demander mais inutile pour le reste du programme
 Element_str * initialiser_gouts() {
     Element_str* l_gouts = NULL;
     add_gout(&l_gouts,create_gout("Chocolat"));
@@ -36,12 +40,7 @@ Element_str * initialiser_gouts() {
     add_gout(&l_gouts,create_gout("Pomme"));
     add_gout(&l_gouts,create_gout("Banane"));
     add_gout(&l_gouts,create_gout("Myrtille"));
-    /*
-    for (int i = 0; i < 7; ++i) {
-        printf("[DEBUG] %s\n",l_gouts->texte);
-        l_gouts = l_gouts->next;
-    }
-    */
+
     return l_gouts;
 }
 
@@ -53,7 +52,9 @@ Pile_Gouts* creer_pile_gouts() {
 
 void empiler(Pile_Gouts* p, char gout[50]) {    
     Element_str* nouv_element = (Element_str*)malloc(sizeof(Element_str));
+    
     strncpy(nouv_element->texte, gout, 50);
+    // strncpy n'ajoute pas de '\0' si la chaine de char est trop longue
     if (strlen(gout) >= 49) {
         nouv_element->texte[49] = '\0';
     }
@@ -70,22 +71,29 @@ Element_str* depiler(Pile_Gouts* p) {
     }
     else{
         strncpy(result->texte, p->data->texte, 50);
-        Element_str* old =p->data;
+        // strncpy n'ajoute pas de '\0' si la chaine de char est trop longue
+        if (strlen(p->data->texte) >= 49) {
+            result->texte[49] = '\0';
+        }
+
+        // On free l'élément dépiler
+        Element_str* old = p->data;
         p->data=p->data->next;
         free(old);
+
         return result;
     }
 }
 
 bool pile_est_vide(Pile_Gouts* p) {
-    if (p->data==NULL) {
+    if (p->data == NULL) {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
 
+// Transforme une commande en une liste de gouts
 Element_str* commande_list_gouts(Element_str* commande) {
     Element_str* l_gouts = NULL;
     char c;
@@ -93,7 +101,7 @@ Element_str* commande_list_gouts(Element_str* commande) {
     while (commande != NULL) {
         c = commande->texte[0];
         i = 0;
-
+        // Pour chaque char de la commande on ajoute le gout approprier
         while (c != '\0') {
             switch (c) {
                 case 'C':

@@ -8,5 +8,5 @@ Ouvrez un terminal
 ```sh
 cd src
 cc -o projet-patisier main.c -Wall
-./main
+./projet-patisier
 ```

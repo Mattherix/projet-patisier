@@ -7,6 +7,7 @@
 Element_str* creer_element_str(char gout[50]) {
     Element_str* nouv_element = (Element_str*)malloc(sizeof(Element_str));
     strncpy(nouv_element->texte, gout, 50);
+    // Par défaut strncpy ne produi pas des strings valide
     if (strlen(gout) >= 49) {
         nouv_element->texte[49] = '\0';
     }

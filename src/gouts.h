@@ -8,7 +8,7 @@ typedef struct Pile_Gouts {
     Element_str* data;
 } Pile_Gouts;
 
-Element_str* create_gout(char gout[]);
+Element_str* create_gout(char gout[50]);
 void add_gout(Element_str** l_gouts, Element_str* gout);
 Element_str * initialiser_gouts();
 Pile_Gouts* creer_pile_gouts();

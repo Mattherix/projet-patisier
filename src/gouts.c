@@ -31,10 +31,12 @@ Element_str * initialiser_gouts() {
     add_gout(&l_gouts,create_gout("Pomme"));
     add_gout(&l_gouts,create_gout("Banane"));
     add_gout(&l_gouts,create_gout("Myrtille"));
+    /*
     for (int i = 0; i < 7; ++i) {
-        printf("%s\n",l_gouts->texte);
+        printf("[DEBUG] %s\n",l_gouts->texte);
         l_gouts = l_gouts->next;
     }
+    */
     return l_gouts;
 }
 

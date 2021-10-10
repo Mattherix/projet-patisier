@@ -17,3 +17,9 @@ void construire_gateau(Gateau* gateau) {
         l_gouts = l_gouts->next;
     }
 }
+
+void free_gateau(Gateau* gateau) {
+    free_pile_gouts(gateau->p_gouts);
+    free_element_str_list(gateau->commande);
+    free(gateau);
+}

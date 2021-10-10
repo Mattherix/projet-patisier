@@ -7,5 +7,6 @@ typedef struct Element_str {
 } Element_str;
 
 Element_str* creer_element_str(char gout[50]);
+void free_element_str_list(Element_str* ele);
 
 #endif

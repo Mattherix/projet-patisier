@@ -28,7 +28,6 @@ int main() {
                 construire_gateau(gateau);
                 livrer(gateau,f_degustation);
                 break;
-            
             case 2:
                 do {
                     printf("Combien de parts voulez vous déguster ?\n");
@@ -42,6 +41,9 @@ int main() {
                 break;
         }
     }
+    free_file_commandes(f_commandes);
+    // Nous n'avons pas à free gateau, il fait partie de f_degustation
+    free_file_degustation(f_degustation);
     
     return 0;
 }

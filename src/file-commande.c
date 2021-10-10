@@ -71,6 +71,11 @@ Element_str* traiter_commande(File_Commandes* f_commandes) {
     }
 }
 
+void free_file_commandes(File_Commandes* f_commandes) {
+    free_element_str_list(f_commandes->commandes);
+    free(f_commandes);
+}
+
 void _print_file_commande(File_Commandes* f_commandes) {
     puts("[DEBUG] Print File commandes");
     Element_str* commande = f_commandes->commandes;

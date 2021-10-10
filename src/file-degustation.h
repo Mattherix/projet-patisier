@@ -14,7 +14,9 @@ typedef struct File_Degustation {
 
 Element_gtx* create_element_gtx(Gateau* gateau);
 File_Degustation* create_file_degustation();
-void livrer(Gateau* gateau,File_Degustation* f_degustation); // Enfiler
+void livrer(Gateau* gateau,File_Degustation* f_degustation);
 void degustation(File_Degustation* f_degustation, int nb_parts);
+void free_element_gtx_list(Element_gtx* ele);
+void free_file_degustation(File_Degustation* f_degustation);
 
 #endif

@@ -16,6 +16,6 @@ void empiler(Pile_Gouts* p, char gout[50]);
 Element_str* depiler(Pile_Gouts* p);
 bool pile_est_vide();
 Element_str* commande_list_gouts(Element_str* commande);
-void free_pile_gouts();
+void free_pile_gouts(Pile_Gouts* pile_gouts);
 
 #endif

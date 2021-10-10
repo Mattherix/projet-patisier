@@ -12,3 +12,10 @@ Element_str* creer_element_str(char gout[50]) {
     }
     return nouv_element;
 }
+
+void free_element_str_list(Element_str* ele) {
+    if (ele != NULL) {
+        free_element_str_list(ele->next);
+        free(ele);
+    }
+}

@@ -55,3 +55,15 @@ void degustation(File_Degustation* f_degustation, int nb_parts) {
         puts("Pas de gateau dans la File :(");
     }   
 }
+
+void free_element_gtx_list(Element_gtx* ele) {
+    if (ele != NULL) {
+        free_element_gtx_list(ele->next);
+        free_gateau(ele->gateau);
+        free(ele);
+    }
+}
+void free_file_degustation(File_Degustation* f_degustation) {
+    free_element_gtx_list(f_degustation->commandes);
+    free(f_degustation);
+}

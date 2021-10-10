@@ -131,3 +131,8 @@ Element_str* commande_list_gouts(Element_str* commande) {
     }
     return l_gouts;
 }
+
+void free_pile_gouts(Pile_Gouts* pile_gouts) {
+    free_element_str_list(pile_gouts->data);
+    free(pile_gouts);
+}

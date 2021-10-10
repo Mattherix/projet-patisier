@@ -10,5 +10,6 @@ typedef struct Gateau {
 
 Gateau* creer_gateau(Element_str* commande);
 void construire_gateau(Gateau* gateau);
+void free_gateau(Gateau* gateau);
 
 #endif

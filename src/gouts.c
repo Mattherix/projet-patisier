@@ -3,7 +3,7 @@
 
 #include "gouts.h"
 
-Element_str* create_gout(char gout[50]) {
+Element_str* create_gout(char gout[]) {
     Element_str* l_gouts;
     l_gouts = malloc(sizeof(Element_str));
     strncpy(l_gouts->texte, gout, 50);

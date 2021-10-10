@@ -7,6 +7,6 @@ Projet patisier en programation en c pour travailler sur les piles et les files
 Ouvrez un terminal
 ```sh
 cd src
-cc -o main main.c
+cc -o projet-patisier main.c -Wall
 ./main
 ```

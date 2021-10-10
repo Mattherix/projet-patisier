@@ -1,3 +1,4 @@
+/* Projet patisier */
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -36,12 +37,11 @@ int main() {
                 printf("Vous deguster:\n");
                 degustation(f_degustation, nb_parts);
                 break;
-
             default:
                 puts("Merci d'entrer un choix valide !");
                 break;
         }
     }
-
+    
     return 0;
 }

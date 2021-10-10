@@ -1,3 +1,4 @@
+/* Toutes le fonction lier aux gouts */
 #include <stdlib.h>
 #include <stdbool.h>
 

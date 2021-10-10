@@ -1,3 +1,4 @@
+/* Toutes les fonctions lier à la file de dégustation */
 #include <stdlib.h>
 
 #include "file-degustation.h"

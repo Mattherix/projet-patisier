@@ -1,3 +1,4 @@
+/* Toutes les fonctions lier aux gâteaux */
 #include "gateaux.h"
 
 #include <stdlib.h>

@@ -1,3 +1,4 @@
+/* Toutes les fonctions lier à élément-str */
 #include <stdlib.h>
 #include <string.h>
 
